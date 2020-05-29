@@ -79,10 +79,13 @@ def pause():
     finally:
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
 
-# Configure acceleration & speeds
-# acc = yarp.DVector(axesLA, 10)
-# posLA.setRefAccelerations(acc)
-sp = yarp.DVector(axesLA, 10)
+# Configure acceleration 
+acc = yarp.DVector(axesRA, 5)
+posRA.setRefAccelerations(acc)
+posLA.setRefAccelerations(acc)
+# configure speed
+sp = yarp.DVector(axesRA, 5)
+posRA.setRefSpeeds(sp)
 posLA.setRefSpeeds(sp)
 
 # Configure speech
@@ -95,7 +98,7 @@ ra = yarp.DVector(axesRA,0.0)
 la = yarp.DVector(axesLA,0.0)
 
 # ------ Script ------
-head[0] = -20
+head[0] = -40
 posH.positionMove(head)
 
 pause()
