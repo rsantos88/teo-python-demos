@@ -97,6 +97,11 @@ la = yarp.DVector(axesLA,0.0)
 # ------ Script ------
 head[0] = -20
 posH.positionMove(head)
+
+pause()
+
+head[0] = 0
+posH.positionMove(head)
 ttsSay('estoy identificando a alguien...')
 while not posH.checkMotionDone():
     sleep(0.1)
@@ -128,19 +133,19 @@ for x in range(0,2):
         sleep(0.1)
 
 # give up left arm and open right arm
-ra = list([-28.57, -18.70, 9.60, -65.34, 0.00, 0.00]) # *
-la = list([-31.50, 0.00, 19.00, -71.24, 0.00, 0.00])
+h = yarp.DVector(axesH,0.0) 
+ra = list([-28.57, -18.70, 9.60, -65.34, 0.00, 0.00])
+la = list([-28.57, 18.70, 9.60, -65.34, 0.00, 0.00])
+posH.positionMove(h)
 posRA.positionMove(yarp.DVector(ra))
 posLA.positionMove(yarp.DVector(la))
 ttsSay("estoy preparado para comenzar con las pruebas")
 while not (posLA.checkMotionDone() and posRA.checkMotionDone() ):
     sleep(0.1)
 
-# answer
-h = yarp.DVector(axesH,0.0)
+# question
 ra = list([-63.27, -37.20, 9.59, -65.33, 0.00, 15.98])
 la = list([-63.27, 37.20, -9.59, -65.33, 0.00, 15.98])
-posH.positionMove(h)
 posRA.positionMove(yarp.DVector(ra))
 posLA.positionMove(yarp.DVector(la))
 ttsSay("por donde quieres que empecemos?")
