@@ -7,7 +7,7 @@
 # CopyPolicy: released under the terms of the LGPLv2.1
 # Python version: 2.7
 
-robot = '/teoSim'
+robot = '/teo'
 
 from time import sleep
 
@@ -80,9 +80,10 @@ def pause():
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
 
 # Configure acceleration & speeds
-# acc = yarp.DVector(axesLA, 10)
+# acc = yarp.DVector(axesLA, 10)	# manual por rpc --> set accs (20 20 20 20 20 20 20 0)
 # posLA.setRefAccelerations(acc)
-sp = yarp.DVector(axesLA, 10)
+sp = yarp.DVector(axesLA, 30)
+posRA.setRefSpeeds(sp)
 posLA.setRefSpeeds(sp)
 
 # Configure speech
@@ -92,7 +93,7 @@ ttsLang('mb-es1')
 
 head = yarp.DVector(axesH,0.0)
 ra = yarp.DVector(axesRA,0.0)
-la = yarp.DVector(axesLA,0.0)
+la = yarp.DVector(axesLA,0.0) 
 
 # ------ Script ------
 # Right Arm moving
