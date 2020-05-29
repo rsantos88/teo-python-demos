@@ -7,7 +7,7 @@
 # CopyPolicy: released under the terms of the LGPLv2.1
 # Python version: 2.7
 
-robot = '/teoSim'
+robot = '/teo'
 
 from time import sleep
 
@@ -80,11 +80,11 @@ def pause():
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
 
 # Configure acceleration 
-acc = yarp.DVector(axesRA, 5)
-posRA.setRefAccelerations(acc)
-posLA.setRefAccelerations(acc)
+#acc = yarp.DVector(axesRA, 5)
+#posRA.setRefAccelerations(acc)
+#posLA.setRefAccelerations(acc)
 # configure speed
-sp = yarp.DVector(axesRA, 5)
+sp = yarp.DVector(axesRA, 30)
 posRA.setRefSpeeds(sp)
 posLA.setRefSpeeds(sp)
 
@@ -101,7 +101,8 @@ la = yarp.DVector(axesLA,0.0)
 head[0] = -40
 posH.positionMove(head)
 
-pause()
+# pause()
+sleep(8)
 
 head[0] = 0
 posH.positionMove(head)
