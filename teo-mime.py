@@ -79,9 +79,12 @@ def pause():
     finally:
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
 
-# Configure acceleration & speeds
-# acc = yarp.DVector(axesLA, 10)	# manual por rpc --> set accs (20 20 20 20 20 20 20 0)
-# posLA.setRefAccelerations(acc)
+# Configure acceleration
+for joint in range(0, axesRA):
+	posRA.setRefAcceleration(joint, 20) # manual por rpc --> set accs (20 20 20 20 20 20 20 0)
+	posLA.setRefAcceleration(joint, 20)
+
+# Configure speed
 sp = yarp.DVector(axesLA, 30)
 posRA.setRefSpeeds(sp)
 posLA.setRefSpeeds(sp)
