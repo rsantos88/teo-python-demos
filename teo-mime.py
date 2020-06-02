@@ -170,7 +170,7 @@ posH.positionMove(head)
 la = list([-38.77, 9.79, -10.96, -63.36, -7.20, 8.00])
 posLA.positionMove(yarp.DVector(la))
 ttsSay('voy, a, seguirla')
-while not posRA.checkMotionDone():
+while not posLA.checkMotionDone():
     sleep(0.1)
 
 head[0] = 40
