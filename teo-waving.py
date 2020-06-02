@@ -82,8 +82,8 @@ def pause():
 
 # Configure acceleration
 for joint in range(0, axesRA):
-	posRA.setRefAcceleration(joint, 20) # manual por rpc --> set accs (20 20 20 20 20 20 20 0)
-	posLA.setRefAcceleration(joint, 20)
+	posRA.setRefAcceleration(joint, 30) # manual por rpc --> set accs (30 30 30 30 30 30 30 0)
+	posLA.setRefAcceleration(joint, 30)
 
 # configure speed
 sp = yarp.DVector(axesRA, 30)
